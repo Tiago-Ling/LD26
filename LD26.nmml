@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	<app title="LD26" file="LD26" main="Main" version="0.0.1" company="Zaphod" />
+	
+	<window width="800" height="480" fps="60" orientation="portrait" resizable="true" if="web" />
+	<window width="800" height="480" fps="60" orientation="landscape" fullscreen="false" unless="web" />
+ 	
+	<set name="BUILD_DIR" value="export" />
+	
+	<!--<setenv name="no_console" value="1" />-->
+	
+	<classpath name="source" />
+	
+	<assets path="assets" if="android" >
+		<sound path="data/beep.wav" id="Beep" />
+		
+		<!-- Your sound embedding code here... -->
+		
+	</assets>
+	
+	<assets path="assets" if="desktop" >
+		<sound path="data/beep.wav" id="Beep" />
+		
+		<!-- Your sound embedding code here... -->
+		
+	</assets>
+	
+	<assets path="assets" if="flash" >
+		<sound path="data/beep.mp3" id="Beep" />
+		
+		<!-- Your sound embedding code here... -->
+		<sound path="hit.mp3" id="hit_a" />
+		<sound path="pickup.mp3" id="pickup_a" />
+		<sound path="explo_a.mp3" id="explo_a" />
+		<sound path="explo_b.mp3" id="explo_b" />
+		<sound path="explo_c.mp3" id="explo_c" />
+		<sound path="player_hit.mp3" id="p_hit" />
+		<sound path="squid_hit.mp3" id="s_hit" />
+		<sound path="red_monster_hit.mp3" id="r_hit" />
+		<sound path="select.mp3" id="select" />
+		<sound path="longshot.mp3" id="longshot" />
+		<sound path="charge.mp3" id="charge" />
+		
+	</assets>
+	
+	<assets path="assets" if="target_js" >
+		<sound path="data/beep.mp3" id="Beep" />
+		
+		<!-- Your sound embedding code here... -->
+		
+	</assets>
+	
+	<assets path="assets" exclude="*.wav" if="flash" />
+	<assets path="assets" exclude="*.svg" if="html5" />
+	<assets path="assets" if="desktop" />
+	<assets path="assets" if="mobile" />
+	
+	<icon name="assets/HaxeFlixel.svg" />
+	
+	<haxelib name="nme" />
+	<haxelib name="flixel"/>
+	
+    <!--Disable the Flixel core debugger-->
+    <set name="FLX_NO_DEBUG" />
+	
+    <!--Disable the Flixel core recording system if your not using it-->
+    <set name="FLX_NO_RECORD" />
+	
+	<!--Optimise inputs, be careful you will get null errors if you don't use conditionals in your game-->
+    <!--<set name="FLX_NO_MOUSE" if="mobile" />-->
+    <set name="FLX_NO_MOUSE"/>
+    <!--<set name="FLX_NO_KEYBOARD" if="mobile" />-->
+    <set name="FLX_NO_TOUCH" if="desktop" />
+    <set name="FLX_NO_JOYSTICK" />
+	<app preloader="NMEPreloader" unless="html5" />
+</project>
